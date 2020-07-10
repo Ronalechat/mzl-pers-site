@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import portrait from "../../assets/images/portrait.jpg";
-import Button from "../common/button/Button";
-import LinkButton from "../common/button/LinkButton";
+// import Button from "../../components/common/button/Button";
+import LinkButton from "../../components/common/button/LinkButton";
+import Button from "../../components/common/button/Button";
 
 const Home: React.FC = () => {
   return (

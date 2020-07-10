@@ -5,6 +5,7 @@ const colors = {
   mainBlue: "#0077b6",
   mainOrange: "#fe7f2d",
   white: "#ffffff",
+  transparent: "transparent",
 };
 
 export default colors;

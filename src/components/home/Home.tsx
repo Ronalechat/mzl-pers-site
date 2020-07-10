@@ -1,13 +1,25 @@
 import * as React from "react";
 import styled from "styled-components";
+import portrait from "../../assets/images/portrait.jpg";
+import Button from "../common/button/Button";
+import LinkButton from "../common/button/LinkButton";
 
 const Home: React.FC = () => {
   return (
     <AbsWrapper>
-      <h2>Hey, welcome to my site</h2>
-      <CSText>It's coming soon!</CSText>
-      <br />
-      <CSText>- MZL</CSText>
+      <ImageLeft
+        role="img"
+        aria-label="Portrait picture of Michael"
+        image={portrait}
+      />
+      <RightContainer>
+        <WelcomeHeading>Michael Z Lin</WelcomeHeading>
+        <CSText>It's coming soon!</CSText>
+        <br />
+        <CSText>- MZL</CSText>
+        <Button variant="round-swipe-top" text="CONTENT HERE" />
+        <LinkButton variant="stereoscopic" text="button hover effect" />
+      </RightContainer>
     </AbsWrapper>
   );
 };
@@ -15,13 +27,47 @@ const Home: React.FC = () => {
 const AbsWrapper = styled.div`
   position: absolute;
   display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+`;
+
+const ImageLeft = styled.div<{ image: string }>`
+  background-color: ${({ theme }) => theme.colors.mainOrange};
+  background-image: url(${({ image }) => image});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: block;
+  width: 50vw;
+  height: 100%;
+  @media only screen and (max-width: 700px) {
+    width: 100vw;
+    height: 460px;
+  }
+`;
+const RightContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.white};
+  width: 50%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  @media only screen and (max-width: 700px) {
+    width: 100vw;
+  }
+`;
+
+const WelcomeHeading = styled.h2`
+  color: red;
 `;
 
 const CSText = styled.div`
   display: block;
+  color: ${({ theme }) => theme.colors.mainGrey};
 `;
 
 export default Home;

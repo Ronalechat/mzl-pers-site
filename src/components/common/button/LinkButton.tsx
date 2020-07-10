@@ -178,6 +178,7 @@ const StyledButton = styled.a<LinkButtonProps>(
             transition: all 0.2s;
             font-size: 20px;
             z-index: 1;
+            color: ${({ theme }) => theme.colors.white};
 
             &:before {
               content: "";
@@ -188,6 +189,14 @@ const StyledButton = styled.a<LinkButtonProps>(
               height: 100%;
               background-color: ${({ theme }) => theme.colors.mainBlue};
               z-index: -1;
+              mix-blend-mode: multiply;
+              transition: all 0.2s;
+              transform-origin: top;
+            }
+            &:hover:before {
+              top: -6px;
+              left: 0;
+              transform: perspective(1000px) rotateX(75deg);
             }
 
             &:after {
@@ -199,6 +208,18 @@ const StyledButton = styled.a<LinkButtonProps>(
               height: 100%;
               background-color: ${({ theme }) => theme.colors.mainOrange};
               z-index: -1;
+              mix-blend-mode: multiply;
+              transition: all 0.2s;
+              transform-origin: bottom;
+            }
+
+            &:hover:after {
+              top: 6px;
+              left: 0;
+              transform: perspective(1000px) rotateX(-75deg);
+            }
+            &:hover {
+              color: ${({ theme }) => theme.colors.mainGrey};
             }
           `;
 
